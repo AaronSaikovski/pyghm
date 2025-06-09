@@ -33,12 +33,12 @@ import uuid
 
 from dotenv import load_dotenv
 
-import pystarter.sample_data.standardclass as standardclass
-import pystarter.utils.console_helper as console
-import pystarter.utils.logging_helper as logging
-import pystarter.utils.profiling_helper as profiler
+import pyghm.sample_data.standardclass as standardclass
+import pyghm.utils.console_helper as console
+import pyghm.utils.logging_helper as logging
+import pyghm.utils.profiling_helper as profiler
 import sample_package.sample_module as sample_module
-from pystarter.utils.logging_factory import get_logger
+from pyghm.utils.logging_factory import get_logger
 
 load_dotenv()
 

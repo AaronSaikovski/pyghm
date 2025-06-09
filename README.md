@@ -4,8 +4,8 @@
 
 A Python boilerplate starter project template to setup a baseline Python project for you to get started.
 
-[![Build Status](https://github.com/AaronSaikovski/pystarter/workflows/build/badge.svg)](https://github.com/AaronSaikovski/pystarter/actions)
-[![Licence](https://img.shields.io/github/license/AaronSaikovski/pystarter)](LICENSE)
+[![Build Status](https://github.com/AaronSaikovski/pyghm/workflows/build/badge.svg)](https://github.com/AaronSaikovski/pyghm/actions)
+[![Licence](https://img.shields.io/github/license/AaronSaikovski/pyghm)](LICENSE)
 
 </div>
 Python projects are tricky to setup correctly and as such the creation of this project came about. I hope you enjoy this and enjoy using it as much as I do.
@@ -13,7 +13,7 @@ This has been recently updated to use the awesome UV tool packaging and dependen
 
 ## Usage
 
-Click the [Use this template](https://github.com/AaronSaikovski/pystarter/generate) button at the top of this project's GitHub page to get started.
+Click the [Use this template](https://github.com/AaronSaikovski/pyghm/generate) button at the top of this project's GitHub page to get started.
 
 ## Software Requirements:
 

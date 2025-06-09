@@ -1,8 +1,8 @@
 version: '3.4'
 
 services:
-  pystarter:
-    image: pystarter
+  pyghm:
+    image: pyghm
     build:
       context: .
       dockerfile: ./Dockerfile

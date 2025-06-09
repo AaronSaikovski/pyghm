@@ -5,13 +5,13 @@ build-backend = "hatchling.build"
 
 
 [tool.setuptools]
-packages = ["pystarter"]
+packages = ["pyghm"]
 package-dir = {"" = "src"}
 include-package-data = true
 
 
 [project.scripts]
-pystarter = "pystarter:main"
+pyghm = "pyghm:main"
 
 [tool.pip-tools]
 generate-hashes = true

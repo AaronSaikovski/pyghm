@@ -6,7 +6,7 @@
       "label": "docker-build",
       "platform": "python",
       "dockerBuild": {
-        "tag": "pystarter:latest",
+        "tag": "pyghm:latest",
         "dockerfile": "${workspaceFolder}/Dockerfile",
         "context": "${workspaceFolder}",
         "pull": true
