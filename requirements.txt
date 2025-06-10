@@ -7,20 +7,26 @@ annotated-types==0.7.0
     #   pyghm (pyproject.toml)
     #   pydantic
 anyio==4.9.0
-    # via httpx
+    # via
+    #   pyghm (pyproject.toml)
+    #   httpx
 bandit==1.8.3
     # via pyghm (pyproject.toml)
 certifi==2025.4.26
     # via
+    #   pyghm (pyproject.toml)
     #   httpcore
     #   httpx
     #   requests
 cffi==1.17.1
     # via
+    #   pyghm (pyproject.toml)
     #   cryptography
     #   pynacl
 charset-normalizer==3.4.2
-    # via requests
+    # via
+    #   pyghm (pyproject.toml)
+    #   requests
 click==8.2.1
     # via pyghm (pyproject.toml)
 colorama==0.4.6
@@ -30,19 +36,28 @@ colorama==0.4.6
     #   click
     #   pytest
 cryptography==45.0.4
-    # via pyjwt
+    # via
+    #   pyghm (pyproject.toml)
+    #   pyjwt
 deprecated==1.2.18
-    # via pygithub
+    # via
+    #   pyghm (pyproject.toml)
+    #   pygithub
 dotenv==0.9.9
     # via pyghm (pyproject.toml)
 h11==0.16.0
-    # via httpcore
+    # via
+    #   pyghm (pyproject.toml)
+    #   httpcore
 httpcore==1.0.9
-    # via httpx
+    # via
+    #   pyghm (pyproject.toml)
+    #   httpx
 httpx==0.28.1
     # via pyghm (pyproject.toml)
 idna==3.10
     # via
+    #   pyghm (pyproject.toml)
     #   anyio
     #   httpx
     #   requests
@@ -85,7 +100,9 @@ pluggy==1.6.0
     #   pyghm (pyproject.toml)
     #   pytest
 pycparser==2.22
-    # via cffi
+    # via
+    #   pyghm (pyproject.toml)
+    #   cffi
 pydantic==2.11.5
     # via pyghm (pyproject.toml)
 pydantic-core==2.33.2
@@ -100,9 +117,13 @@ pygments==2.19.1
     #   pytest
     #   rich
 pyjwt==2.10.1
-    # via pygithub
+    # via
+    #   pyghm (pyproject.toml)
+    #   pygithub
 pynacl==1.5.0
-    # via pygithub
+    # via
+    #   pyghm (pyproject.toml)
+    #   pygithub
 pytest==8.4.0
     # via pyghm (pyproject.toml)
 python-dotenv==1.1.0
@@ -114,7 +135,9 @@ pyyaml==6.0.2
     #   pyghm (pyproject.toml)
     #   bandit
 requests==2.32.4
-    # via pygithub
+    # via
+    #   pyghm (pyproject.toml)
+    #   pygithub
 rich==14.0.0
     # via
     #   pyghm (pyproject.toml)
@@ -126,7 +149,9 @@ setuptools==80.9.0
     #   pyghm (pyproject.toml)
     #   pbr
 sniffio==1.3.1
-    # via anyio
+    # via
+    #   pyghm (pyproject.toml)
+    #   anyio
 stevedore==5.4.1
     # via
     #   pyghm (pyproject.toml)
@@ -149,7 +174,10 @@ typing-inspection==0.4.1
     #   pydantic
 urllib3==2.4.0
     # via
+    #   pyghm (pyproject.toml)
     #   pygithub
     #   requests
 wrapt==1.17.2
-    # via deprecated
+    # via
+    #   pyghm (pyproject.toml)
+    #   deprecated
