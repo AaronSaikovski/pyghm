@@ -3,7 +3,9 @@
 aiofiles==24.1.0
     # via pyghm (pyproject.toml)
 altgraph==0.17.4
-    # via pyinstaller
+    # via
+    #   pyghm (pyproject.toml)
+    #   pyinstaller
 annotated-types==0.7.0
     # via
     #   pyghm (pyproject.toml)
@@ -100,7 +102,9 @@ pbr==6.1.1
     #   pyghm (pyproject.toml)
     #   stevedore
 pefile==2023.2.7
-    # via pyinstaller
+    # via
+    #   pyghm (pyproject.toml)
+    #   pyinstaller
 pluggy==1.6.0
     # via
     #   pyghm (pyproject.toml)
@@ -125,7 +129,9 @@ pygments==2.19.1
 pyinstaller==6.14.1
     # via pyghm (pyproject.toml)
 pyinstaller-hooks-contrib==2025.5
-    # via pyinstaller
+    # via
+    #   pyghm (pyproject.toml)
+    #   pyinstaller
 pyjwt==2.10.1
     # via
     #   pyghm (pyproject.toml)
@@ -141,7 +147,9 @@ python-dotenv==1.1.0
     #   pyghm (pyproject.toml)
     #   dotenv
 pywin32-ctypes==0.2.3
-    # via pyinstaller
+    # via
+    #   pyghm (pyproject.toml)
+    #   pyinstaller
 pyyaml==6.0.2
     # via
     #   pyghm (pyproject.toml)

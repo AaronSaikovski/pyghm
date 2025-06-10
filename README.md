@@ -91,12 +91,3 @@ To get started type:
 # Where USER/REPO, ENV_NAME, MY_VAR, MY_SECRET and values are to be passed to the commands on the commandline.
 ```
 
-## Building and running your application with docker
-
-### Build the image
-
-`docker build --platform linux/arm64 -t pyghm:latest .`
-
-### Run the application
-
-`docker run --rm pyghm:latest`
