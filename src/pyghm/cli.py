@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import click
 
 from pyghm.config import GITHUB_TOKEN
@@ -13,15 +11,11 @@ from pyghm.variables import (
     update_env_variable,
 )
 
-################################################
-###(Main CLI Entry Point)
-################################################
-
 
 # ******************************************************************************** #
 @click.group()
 def cli():
-    """GitHub Actions Environment CLI"""
+    """pyghm - Github Actions Environment CLI tool"""
     pass
 
 

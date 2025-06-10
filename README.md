@@ -1,25 +1,36 @@
 <div align="center">
 
-# Python Starter Project Boilerplate Template - v3.0.1
+# PyGithubManager (pyghm)- v1.0.0
 
-A Python boilerplate starter project template to setup a baseline Python project for you to get started.
-
-[![Build Status](https://github.com/AaronSaikovski/pyghm/workflows/build/badge.svg)](https://github.com/AaronSaikovski/pyghm/actions)
-[![Licence](https://img.shields.io/github/license/AaronSaikovski/pyghm)](LICENSE)
+A simple python CLI tool to create github environments, add,remove and update secrets and variables for a given repository and environment.
 
 </div>
-Python projects are tricky to setup correctly and as such the creation of this project came about. I hope you enjoy this and enjoy using it as much as I do.
-This has been recently updated to use the awesome UV tool packaging and dependency toolchain.
-
-## Usage
-
-Click the [Use this template](https://github.com/AaronSaikovski/pyghm/generate) button at the top of this project's GitHub page to get started.
 
 ## Software Requirements:
 
-- [Python v3.13.x](https://www.python.org/) or higher needs to be installed.
-- [UV](https://github.com/astral-sh/uv) or higher needs to be installed
-- [Taskfile](https://taskfile.dev/) to run the build chain commands listed below.
+- [Python v3.13.x](https://www.python.org/) - or higher needs to be installed.
+- [UV](https://github.com/astral-sh/uv) - UV Python pqckage management tool.
+- [Taskfile](https://taskfile.dev/) - Modern makefile replacement to run the build chain commands listed below.
+- [Bandit](https://github.com/PyCQA/bandit/) - Python security linter.
+
+## Environment Setup:
+
+You will need to provide your github PAT/Token in the format:
+
+```bash
+# for Linux/MacOS
+export GITHUB_TOKEN="xxxxxxx"
+
+# for Windows/Powershell
+$env:GITHUB_TOKEN="xxxxxxx"
+```
+
+## Clone Repo:
+
+```bash
+git clone https://github.com/AaronSaikovski/pyghm
+cd pyghm
+```
 
 ## Installation:
 
@@ -34,6 +45,7 @@ The list of commands is as follows:
 * create:             Inits the python project using UV and creates and activates a new virtual environment.
 * default:            Call Create as default cmd.
 * deps:               Install the dependencies.
+* dist:               Runs Pyinstaller to create a self-contained executable.
 * docker-build:       builds a docker image based on the docker fil.e
 * docker-run:         builds a docker image based on the docker file.
 * lint:               Lints the project and performs type checking.
@@ -55,7 +67,36 @@ To get started type:
 - `task create` - this will create a new environment, fetch the dependencies and activate the virtual environment in one step.
 - `task run` - to run project in the src folder.
 - `task clean` - to delete everything - venv, deps etc.
+- `task build` - to build a redistributable package.
 
-## Attribution
+## Execution:
 
-- original concept derived from here: https://github.com/Justintime50/python-template
+```bash
+# Ensure that the GITHUB_TOKEN has been set as an environment variable as above.
+
+# The commands are:
+* ./pyghm get-repo --repo USER/REPO -> To return information about a repository.
+* ./pyghm create-env --repo USER/REPO --env ENV_NAME -> Create a new github environment.
+* ./pyghm create-var --repo USER/REPO --env ENV_NAME --name MY_VAR --value "value" -> Create a new github environment variable.
+* ./pyghm update-var --repo USER/REPO --env ENV_NAME --name MY_VAR --value "new-value" -> Updates a given github environment variable.
+* ./pyghm delete-var --repo USER/REPO --env ENV_NAME --name MY_VAR -> Deletes a given github environment variable.
+* ./pyghm check-var --repo USER/REPO --env ENV_NAME --name MY_VAR -> Checks if a given Github environment variable exists.
+* ./pyghm list-vars --repo USER/REPO --env ENV_NAME -> Lists all the environment variables for a given repository.
+* ./pyghm create-secret --repo USER/REPO --env ENV_NAME --name MY_SECRET --value "secret" -> Create a new github environment secret.
+* ./pyghm update-secret --repo USER/REPO --env ENV_NAME --name MY_SECRET --value "new-secret" -> Updates a given github environment secret.
+* ./pyghm delete-secret --repo USER/REPO --env ENV_NAME --name MY_SECRET -> Deletes a given github environment secret.
+
+# ./pyghm will have to be substituted with the ./pyghm.exe on Windows.
+
+# Where USER/REPO, ENV_NAME, MY_VAR, MY_SECRET and values are to be passed to the commands on the commandline.
+```
+
+## Building and running your application with docker
+
+### Build the image
+
+`docker build --platform linux/arm64 -t pyghm:latest .`
+
+### Run the application
+
+`docker run --rm pyghm:latest`

@@ -14,3 +14,10 @@ pyghm = "pyghm.cli:cli"
 
 [tool.pip-tools]
 generate-hashes = true
+
+
+dynamic = ["version"]
+
+[tool.setuptools.dynamic]
+version = {attr = "pyghm.version.VERSION"}
+readme = {file = ["README.md"]}

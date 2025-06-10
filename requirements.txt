@@ -2,6 +2,8 @@
 #    uv pip compile pyproject.toml -o requirements.txt
 aiofiles==24.1.0
     # via pyghm (pyproject.toml)
+altgraph==0.17.4
+    # via pyinstaller
 annotated-types==0.7.0
     # via
     #   pyghm (pyproject.toml)
@@ -86,6 +88,8 @@ nest-asyncio==1.6.0
 packaging==25.0
     # via
     #   pyghm (pyproject.toml)
+    #   pyinstaller
+    #   pyinstaller-hooks-contrib
     #   pytest
 pathspec==0.12.1
     # via
@@ -95,6 +99,8 @@ pbr==6.1.1
     # via
     #   pyghm (pyproject.toml)
     #   stevedore
+pefile==2023.2.7
+    # via pyinstaller
 pluggy==1.6.0
     # via
     #   pyghm (pyproject.toml)
@@ -116,6 +122,10 @@ pygments==2.19.1
     #   pyghm (pyproject.toml)
     #   pytest
     #   rich
+pyinstaller==6.14.1
+    # via pyghm (pyproject.toml)
+pyinstaller-hooks-contrib==2025.5
+    # via pyinstaller
 pyjwt==2.10.1
     # via
     #   pyghm (pyproject.toml)
@@ -130,6 +140,8 @@ python-dotenv==1.1.0
     # via
     #   pyghm (pyproject.toml)
     #   dotenv
+pywin32-ctypes==0.2.3
+    # via pyinstaller
 pyyaml==6.0.2
     # via
     #   pyghm (pyproject.toml)
@@ -148,6 +160,8 @@ setuptools==80.9.0
     # via
     #   pyghm (pyproject.toml)
     #   pbr
+    #   pyinstaller
+    #   pyinstaller-hooks-contrib
 sniffio==1.3.1
     # via
     #   pyghm (pyproject.toml)
