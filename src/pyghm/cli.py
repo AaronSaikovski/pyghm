@@ -4,7 +4,7 @@ import click
 
 from pyghm.config import GITHUB_TOKEN
 from pyghm.github_utils import create_environment, get_repo
-from pyghm.secrets import create_env_secret
+from pyghm.secrets import create_env_secret, delete_env_secret, update_env_secret
 from pyghm.variables import (
     create_env_variable,
     delete_env_variable,
@@ -65,6 +65,20 @@ def create_var_cmd(repo, env, name, value, token):
 # ******************************************************************************** #
 
 
+@cli.command("update-var")
+@click.option("--repo", required=True, help="Repository in 'owner/repo' format")
+@click.option("--env", required=True, help="Environment name")
+@click.option("--name", required=True, help="Variable name")
+@click.option("--value", required=True, help="Variable value")
+@click.option("--token", envvar="GITHUB_TOKEN", required=True, help="GitHub token")
+def update_var_cmd(repo, env, name, value, token):
+    owner, repo_name = repo.split("/")
+    update_env_variable(owner, repo_name, env, name, value, token)
+
+
+# ******************************************************************************** #
+
+
 @cli.command("create-secret")
 @click.option("--repo", required=True, help="Repository in 'owner/repo' format")
 @click.option("--env", required=True, help="Environment name")
@@ -79,17 +93,30 @@ def create_secret_cmd(repo, env, name, value, token):
 # ******************************************************************************** #
 
 
-@cli.command("update-var")
+@cli.command("delete-secret")
+@click.option("--repo", required=True, help="Repository in 'owner/repo' format")
+@click.option("--env", required=True, help="Environment name")
+@click.option("--name", required=True, help="Secret name")
+@click.option("--token", envvar="GITHUB_TOKEN", required=True, help="GitHub token")
+def delete_secret_cmd(repo, env, name, token):
+    owner, repo_name = repo.split("/")
+    delete_env_secret(owner, repo_name, env, name, token)
+
+
+# ******************************************************************************** #
+
+
+@cli.command("update-secret")
 @click.option("--repo", required=True, help="Repository in owner/name format")
 @click.option("--env", required=True, help="Environment name")
-@click.option("--name", required=True, help="Environment variable name")
-@click.option("--value", required=True, help="Environment variable value")
-def update_var(repo, env, name, value):
+@click.option("--name", required=True, help="Secret name")
+@click.option("--value", required=True, help="Secret value")
+def update_secret(repo, env, name, value):
     """Update an existing GitHub Actions environment variable."""
     if not GITHUB_TOKEN:
         raise click.ClickException("GITHUB_TOKEN environment variable not set.")
     owner, repo_name = repo.split("/")
-    update_env_variable(owner, repo_name, env, name, value, GITHUB_TOKEN)
+    update_env_secret(owner, repo_name, env, name, value, GITHUB_TOKEN)
 
 
 # ******************************************************************************** #

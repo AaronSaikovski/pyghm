@@ -6,7 +6,7 @@ from pyghm.config import GITHUB_REPO_URL
 # ******************************************************************************** #
 
 
-def create_env_variable(owner, repo_name, env_name, var_name, var_value, token):
+def create_env_variable(owner, repo_name, env_name, var_name, var_value, token) -> int:
     """Create a GitHub Actions environment variable.
 
     Args:
@@ -29,8 +29,11 @@ def create_env_variable(owner, repo_name, env_name, var_name, var_value, token):
     else:
         click.echo(f"❌ Failed to add variable: {response.text}")
 
+    return response.status_code
+
 
 # ******************************************************************************** #
+
 
 def update_env_variable(owner, repo_name, env_name, var_name, var_value, token):
     """Update an existing GitHub Actions environment variable.
@@ -43,38 +46,31 @@ def update_env_variable(owner, repo_name, env_name, var_name, var_value, token):
         var_value (_type_): _description_
         token (_type_): _description_
     """
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Accept": "application/vnd.github+json",
-    }
 
     # First try to delete the variable if it exists
-    delete_url = f"{GITHUB_REPO_URL}/{owner}/{repo_name}/environments/{env_name}/variables/{var_name}"
-    delete_resp = httpx.delete(delete_url, headers=headers)
-    if delete_resp.status_code == 204:
+    delete_resp = delete_env_variable(owner, repo_name, env_name, var_name, token)
+    if delete_resp == 204:
         print(f"🗑️ Deleted existing variable '{var_name}' before updating.")
-    elif delete_resp.status_code == 404:
+    elif delete_resp == 404:
         print(f"ℹ️ Variable '{var_name}' did not exist, proceeding to create.")
     else:
-        print(f"❌ Failed to delete variable before update: {delete_resp.status_code} {delete_resp.text}")
+        print(f"❌ Failed to delete variable before update: {delete_resp}")
         return
 
-    # Then create the variable
-    create_url = f"{GITHUB_REPO_URL}/{owner}/{repo_name}/environments/{env_name}/variables"
-    payload = {"name": var_name, "value": var_value}
-    create_resp = httpx.post(create_url, headers=headers, json=payload)
+    create_resp = create_env_variable(
+        owner, repo_name, env_name, var_name, var_value, token
+    )
 
-    if create_resp.status_code == 201:
+    if create_resp == 201:
         print(f"✅ Created environment variable '{var_name}'.")
     else:
-        print(f"❌ Failed to create variable: {create_resp.status_code} {create_resp.text}")
-
+        print(f"❌ Failed to create variable: {create_resp}")
 
 
 # ******************************************************************************** #
 
 
-def delete_env_variable(owner, repo_name, env_name, var_name, token):
+def delete_env_variable(owner, repo_name, env_name, var_name, token) -> int:
     """
     Delete an environment variable from a GitHub Actions environment.
 
@@ -98,6 +94,7 @@ def delete_env_variable(owner, repo_name, env_name, var_name, token):
         print(f"ℹ️ Variable '{var_name}' not found.")
     else:
         print(f"❌ Failed to delete variable: {response.status_code} {response.text}")
+    return response.status_code
 
 
 # ******************************************************************************** #
