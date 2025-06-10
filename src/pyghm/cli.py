@@ -79,49 +79,6 @@ def update_var_cmd(repo, env, name, value, token):
 # ******************************************************************************** #
 
 
-@cli.command("create-secret")
-@click.option("--repo", required=True, help="Repository in 'owner/repo' format")
-@click.option("--env", required=True, help="Environment name")
-@click.option("--name", required=True, help="Secret name")
-@click.option("--value", required=True, help="Secret value")
-@click.option("--token", envvar="GITHUB_TOKEN", required=True, help="GitHub token")
-def create_secret_cmd(repo, env, name, value, token):
-    owner, repo_name = repo.split("/")
-    create_env_secret(owner, repo_name, env, name, value, token)
-
-
-# ******************************************************************************** #
-
-
-@cli.command("delete-secret")
-@click.option("--repo", required=True, help="Repository in 'owner/repo' format")
-@click.option("--env", required=True, help="Environment name")
-@click.option("--name", required=True, help="Secret name")
-@click.option("--token", envvar="GITHUB_TOKEN", required=True, help="GitHub token")
-def delete_secret_cmd(repo, env, name, token):
-    owner, repo_name = repo.split("/")
-    delete_env_secret(owner, repo_name, env, name, token)
-
-
-# ******************************************************************************** #
-
-
-@cli.command("update-secret")
-@click.option("--repo", required=True, help="Repository in owner/name format")
-@click.option("--env", required=True, help="Environment name")
-@click.option("--name", required=True, help="Secret name")
-@click.option("--value", required=True, help="Secret value")
-def update_secret(repo, env, name, value):
-    """Update an existing GitHub Actions environment variable."""
-    if not GITHUB_TOKEN:
-        raise click.ClickException("GITHUB_TOKEN environment variable not set.")
-    owner, repo_name = repo.split("/")
-    update_env_secret(owner, repo_name, env, name, value, GITHUB_TOKEN)
-
-
-# ******************************************************************************** #
-
-
 @cli.command("delete-var")
 @click.option("--repo", required=True, help="Repository in owner/name format")
 @click.option("--env", required=True, help="Environment name")
@@ -173,6 +130,49 @@ def list_vars_cmd(repo, env, token):
             click.echo(f"No variables found in environment '{env}'.")
     except Exception as e:
         raise click.ClickException(f"Error listing variables: {e}")
+
+
+# ******************************************************************************** #
+
+
+@cli.command("create-secret")
+@click.option("--repo", required=True, help="Repository in 'owner/repo' format")
+@click.option("--env", required=True, help="Environment name")
+@click.option("--name", required=True, help="Secret name")
+@click.option("--value", required=True, help="Secret value")
+@click.option("--token", envvar="GITHUB_TOKEN", required=True, help="GitHub token")
+def create_secret_cmd(repo, env, name, value, token):
+    owner, repo_name = repo.split("/")
+    create_env_secret(owner, repo_name, env, name, value, token)
+
+
+# ******************************************************************************** #
+
+
+@cli.command("delete-secret")
+@click.option("--repo", required=True, help="Repository in 'owner/repo' format")
+@click.option("--env", required=True, help="Environment name")
+@click.option("--name", required=True, help="Secret name")
+@click.option("--token", envvar="GITHUB_TOKEN", required=True, help="GitHub token")
+def delete_secret_cmd(repo, env, name, token):
+    owner, repo_name = repo.split("/")
+    delete_env_secret(owner, repo_name, env, name, token)
+
+
+# ******************************************************************************** #
+
+
+@cli.command("update-secret")
+@click.option("--repo", required=True, help="Repository in owner/name format")
+@click.option("--env", required=True, help="Environment name")
+@click.option("--name", required=True, help="Secret name")
+@click.option("--value", required=True, help="Secret value")
+def update_secret(repo, env, name, value):
+    """Update an existing GitHub Actions environment variable."""
+    if not GITHUB_TOKEN:
+        raise click.ClickException("GITHUB_TOKEN environment variable not set.")
+    owner, repo_name = repo.split("/")
+    update_env_secret(owner, repo_name, env, name, value, GITHUB_TOKEN)
 
 
 # ******************************************************************************** #
