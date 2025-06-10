@@ -9,9 +9,8 @@ packages = ["pyghm"]
 package-dir = {"" = "src"}
 include-package-data = true
 
-
 [project.scripts]
-pyghm = "pyghm:main"
+pyghm = "pyghm.cli:cli"
 
 [tool.pip-tools]
 generate-hashes = true

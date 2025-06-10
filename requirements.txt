@@ -3,66 +3,153 @@
 aiofiles==24.1.0
     # via pyghm (pyproject.toml)
 annotated-types==0.7.0
-    # via pydantic
+    # via
+    #   pyghm (pyproject.toml)
+    #   pydantic
+anyio==4.9.0
+    # via httpx
 bandit==1.8.3
+    # via pyghm (pyproject.toml)
+certifi==2025.4.26
+    # via
+    #   httpcore
+    #   httpx
+    #   requests
+cffi==1.17.1
+    # via
+    #   cryptography
+    #   pynacl
+charset-normalizer==3.4.2
+    # via requests
+click==8.2.1
     # via pyghm (pyproject.toml)
 colorama==0.4.6
     # via
+    #   pyghm (pyproject.toml)
     #   bandit
+    #   click
     #   pytest
+cryptography==45.0.4
+    # via pyjwt
+deprecated==1.2.18
+    # via pygithub
+dotenv==0.9.9
+    # via pyghm (pyproject.toml)
+h11==0.16.0
+    # via httpcore
+httpcore==1.0.9
+    # via httpx
+httpx==0.28.1
+    # via pyghm (pyproject.toml)
+idna==3.10
+    # via
+    #   anyio
+    #   httpx
+    #   requests
 iniconfig==2.1.0
-    # via pytest
+    # via
+    #   pyghm (pyproject.toml)
+    #   pytest
 isort==6.0.1
     # via pyghm (pyproject.toml)
 markdown-it-py==3.0.0
-    # via rich
+    # via
+    #   pyghm (pyproject.toml)
+    #   rich
 mdurl==0.1.2
-    # via markdown-it-py
+    # via
+    #   pyghm (pyproject.toml)
+    #   markdown-it-py
 mypy==1.16.0
     # via pyghm (pyproject.toml)
 mypy-extensions==1.1.0
-    # via mypy
+    # via
+    #   pyghm (pyproject.toml)
+    #   mypy
 nest-asyncio==1.6.0
     # via pyghm (pyproject.toml)
 packaging==25.0
-    # via pytest
+    # via
+    #   pyghm (pyproject.toml)
+    #   pytest
 pathspec==0.12.1
-    # via mypy
+    # via
+    #   pyghm (pyproject.toml)
+    #   mypy
 pbr==6.1.1
-    # via stevedore
+    # via
+    #   pyghm (pyproject.toml)
+    #   stevedore
 pluggy==1.6.0
-    # via pytest
+    # via
+    #   pyghm (pyproject.toml)
+    #   pytest
+pycparser==2.22
+    # via cffi
 pydantic==2.11.5
     # via pyghm (pyproject.toml)
 pydantic-core==2.33.2
-    # via pydantic
+    # via
+    #   pyghm (pyproject.toml)
+    #   pydantic
+pygithub==2.6.1
+    # via pyghm (pyproject.toml)
 pygments==2.19.1
     # via
+    #   pyghm (pyproject.toml)
     #   pytest
     #   rich
+pyjwt==2.10.1
+    # via pygithub
+pynacl==1.5.0
+    # via pygithub
 pytest==8.4.0
     # via pyghm (pyproject.toml)
 python-dotenv==1.1.0
-    # via pyghm (pyproject.toml)
+    # via
+    #   pyghm (pyproject.toml)
+    #   dotenv
 pyyaml==6.0.2
-    # via bandit
+    # via
+    #   pyghm (pyproject.toml)
+    #   bandit
+requests==2.32.4
+    # via pygithub
 rich==14.0.0
-    # via bandit
+    # via
+    #   pyghm (pyproject.toml)
+    #   bandit
 ruff==0.11.13
     # via pyghm (pyproject.toml)
 setuptools==80.9.0
-    # via pbr
+    # via
+    #   pyghm (pyproject.toml)
+    #   pbr
+sniffio==1.3.1
+    # via anyio
 stevedore==5.4.1
-    # via bandit
+    # via
+    #   pyghm (pyproject.toml)
+    #   bandit
 structlog==25.4.0
     # via pyghm (pyproject.toml)
 types-aiofiles==24.1.0.20250606
     # via pyghm (pyproject.toml)
 typing-extensions==4.14.0
     # via
+    #   pyghm (pyproject.toml)
     #   mypy
     #   pydantic
     #   pydantic-core
+    #   pygithub
     #   typing-inspection
 typing-inspection==0.4.1
-    # via pydantic
+    # via
+    #   pyghm (pyproject.toml)
+    #   pydantic
+urllib3==2.4.0
+    # via
+    #   pygithub
+    #   requests
+wrapt==1.17.2
+    # via deprecated
