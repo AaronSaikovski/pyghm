@@ -26,7 +26,7 @@ version: "3"
 
 #ENV VARS
 env:
-  PROJECT_NAME: "pystarter"
+  PROJECT_NAME: "pyghm"
   PYTHON_VERSION: "3.13" #">=3.13,<3.13"
 
 ###############################################################################
@@ -144,7 +144,6 @@ tasks:
     cmds:
       - uv build
 
-
   ###########################################################################
 
   ## reqs - Lock dependencies declared in a pyproject.toml to requirements.txt.
@@ -172,5 +171,14 @@ tasks:
     #deps: [docker-build]
     cmds:
       - docker run $PROJECT_NAME:latest
+
+  ###############################################################################
+
+  ## dist - Executes pyinstaller for creating a self contained exe.
+  dist:
+    desc: "Runs Pyinstaller to create a self-contained executable."
+    deps: [activate]
+    cmds:
+      - uv run pyinstaller src/$PROJECT_NAME/__main__.py --onefile  --name $PROJECT_NAME --clean
 
   ###############################################################################
